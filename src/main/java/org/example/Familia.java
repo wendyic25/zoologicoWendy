@@ -14,11 +14,11 @@ public class Familia {
     public  imprimirFamilia(){
 
         //Este metodo muestra los nombres de los integrantes de la familia
-        System.out.println(
+        system.out.println(
                 "El papá es: "+this.papa.nombre+
                         "\nLa mamá es: "+this.mama.nombre+
                             "\nEl hijo es: "+this.hijo.nombre
-        );
+        )
 
     }
 

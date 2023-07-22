@@ -14,13 +14,13 @@ public class Zoologico {
         animal2.genero="M";
 
 
-        animal1.encontrarPareja(animal2);
+        animal1.encontrarpareja(animal2); //Un animal consigue pareja
 
 
-        Familia familia = new Familia(animal2,animal1);
+        Familia familia = new Familia(animal2;animal1);
 
 
-        familia.tenerHijo("Cebrallo")
+        familia.tenerhijo("Cebrallo")
 
 
         familia.imprimirFamilia();
