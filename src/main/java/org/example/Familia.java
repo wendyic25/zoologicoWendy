@@ -2,8 +2,8 @@ package org.example;
 
 public class Familia {
 
-    Animal papa="Dinosaurin";
-    Animal mama="Tiburosin";
+    Animal papa;
+    Animal mama;
     Animal hijo;
 
     public Familia(Animal papa, Animal mama) {
@@ -11,40 +11,40 @@ public class Familia {
         this.mama = mama;
     }
 
-    public  imprimirFamilia(){
-
-        //Este metodo muestra los nombres de los integrantes de la familia
-        system.out.println(
-                "El papá es: "+this.papa.nombre+
-                        "\nLa mamá es: "+this.mama.nombre+
-                            "\nEl hijo es: "+this.hijo.nombre
-        )
-
-    }
-
-    public void tenerHijo(String nombre){
-
-        if(this.papa.pareja!=null){
-
-            Animal hijo= new Animal();
-            hijo.nombre=nombre;
-            hijo.peso=1;
-            double random = Math.random();
-            if(random<0.5){
-                hijo.genero="F";
-            }else{
-                hijo.genero="M";
-            }
-            this.hijo=hijo;
-
-        }else{
-            System.out.println("Aun no puedes tener hijos");
+    public void imprimirFamilia() {
+        String[]roles={"papá", "mamá", "hijo"};
+        for (String rol : roles) {
+            System.out.println("El " + rol + " es: " + obtenerNombre(rol));
         }
-
-
     }
 
+    private String obtenerNombre(String rol) {
+        switch (rol) {
+            case "papá":
+                return this.papa.nombre;
+            case "mamá":
+                return this.mama.nombre;
+            case "hijo":
+                return this.hijo.nombre;
+            default:
+                return "";
+        }
+    }
 
-
-
+    public boolean tenerHijo(String nombre) {
+        if (this.papa.pareja != null) {
+            Animal hijo = new Animal(nombre, 1);
+            double random = Math.random();
+            if (random < 0.5) {
+                hijo.genero = "F";
+            } else {
+                hijo.genero = "M";
+            }
+            this.hijo = hijo;
+            return true;
+        } else {
+            System.out.println("vuelva a intentar tener el hijo");
+            return false;
+        }
+    }
 }
